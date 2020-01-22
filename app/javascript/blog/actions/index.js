@@ -17,7 +17,7 @@ export function createPost(body, callback) {
 }
 
 export function fetchPost(id) {
-  const promise = fetch(`http://reduxblog.herokuapp.com/api/posts/${id}?key=WAGON-BLOG`)
+  const promise = fetch(`/api/v1/posts/${id}`)
     .then(response => response.json());
 
   return {
@@ -28,7 +28,7 @@ export function fetchPost(id) {
 
 export function fetchPosts() {
   // AJAX request
-  const promise = fetch("http://reduxblog.herokuapp.com/api/posts?key=WAGON-BLOG")
+  const promise = fetch("/api/v1/posts")
     .then(response => response.json());
 
   return {
@@ -36,4 +36,3 @@ export function fetchPosts() {
     payload: promise
   }
 }
-
