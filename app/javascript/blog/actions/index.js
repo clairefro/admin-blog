@@ -3,7 +3,14 @@ export const FETCH_POST = 'FETCH_POST';
 export const POST_CREATED = 'POST_CREATED';
 
 export function createPost(body, callback) {
-  const request = fetch("http://reduxblog.herokuapp.com/api/posts?key=WAGON-BLOG", {
+  // const request = fetch("/api/v1/posts", {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(body)
+  // }).then(response => response.json())
+  //   .then(callback);
+
+  const request = fetch("/api/v1/posts", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)

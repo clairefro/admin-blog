@@ -1,5 +1,6 @@
 # change default super class "ApplicationController" to "ActionController"
 class Api::V1::PostsController < ActionController::Base
+  skip_before_action :verify_authenticity_token
   # can use local variables bc there is no view file
   def index
     posts = Post.all
@@ -14,6 +15,7 @@ class Api::V1::PostsController < ActionController::Base
 
   def create
     post = Post.create(post_params)
+    pp post
     render json: post
   end
 

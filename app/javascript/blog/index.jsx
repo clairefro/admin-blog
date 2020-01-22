@@ -16,17 +16,21 @@ import PostsNew from './containers/posts_new';
 // import '../assets/stylesheets/application.scss';
 import postsReducer from './reducers/posts_reducer';
 
+const root = document.getElementById('root');
 
 const reducers = combineReducers({
   posts: postsReducer,
   form: formReducer
 });
 
+// pre-load posts from db before render
+const initialState = { posts: JSON.parse(root.dataset.posts)};
+
 const middlewares = applyMiddleware(reduxPromise, logger);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers, initialState, middlewares)}>
     <Router history={history}>
       <div className="thin-container">
         <Switch>
@@ -37,5 +41,5 @@ ReactDOM.render(
       </div>
     </Router>
   </Provider>,
-  document.getElementById('root')
+  root
 );
