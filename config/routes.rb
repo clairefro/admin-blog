@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # protects react routing
+  get '/posts/new', to: 'pages#home'
   get '/posts/:id', to: 'pages#home'
 end
