@@ -12,7 +12,8 @@ import PostsIndex from './containers/posts_index';
 import PostsShow from './containers/posts_show';
 import PostsNew from './containers/posts_new';
 
-import '../assets/stylesheets/application.scss';
+// remove for rails
+// import '../assets/stylesheets/application.scss';
 import postsReducer from './reducers/posts_reducer';
 
 
